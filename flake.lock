@@ -16,6 +16,37 @@
         "type": "github"
       }
     },
+    "nix-lib": {
+      "locked": {
+        "lastModified": 1725932135,
+        "narHash": "sha256-lOth3aX2oK1KGNBIKJDDrVSW7DqZHkyT+FvjZ9r7bOk=",
+        "owner": "ekala-project",
+        "repo": "nix-lib",
+        "rev": "f3baad9fc4df31152e6150712204bb391214fdd7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ekala-project",
+        "repo": "nix-lib",
+        "type": "github"
+      }
+    },
+    "nu_scripts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745375686,
+        "narHash": "sha256-Zw6eIo9BTn6/4qd03Jca3Kp3KZwHJEwEoUcnuS3Z9NM=",
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "rev": "9560df937090b640ed04aa270641a77b8d5f991c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "type": "github"
+      }
+    },
     "nupm": {
       "flake": false,
       "locked": {
@@ -51,6 +82,8 @@
     "root": {
       "inputs": {
         "git_nu": "git_nu",
+        "nix-lib": "nix-lib",
+        "nu_scripts": "nu_scripts",
         "nupm": "nupm",
         "nutest": "nutest"
       }
