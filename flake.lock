@@ -1,6 +1,60 @@
 {
   "nodes": {
-    "root": {}
+    "git_nu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744167057,
+        "narHash": "sha256-a6UvO0lWGRdo4bOZXM9Lp5zPPSB9lQt5fK0uivWaSzI=",
+        "owner": "fj0r",
+        "repo": "git.nu",
+        "rev": "6a17e0acfd619f524dac5d8ffa31915c6db28651",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fj0r",
+        "repo": "git.nu",
+        "type": "github"
+      }
+    },
+    "nupm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744227294,
+        "narHash": "sha256-C0yByWaYXyWsKFoRNaa82PdJx8+gOPeYqVw2iuEA9+A=",
+        "owner": "nushell",
+        "repo": "nupm",
+        "rev": "0c14c5f68ba8724be592b712e53acbb96001a56c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nushell",
+        "repo": "nupm",
+        "type": "github"
+      }
+    },
+    "nutest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745000154,
+        "narHash": "sha256-z8/6NqBbk/VoVjvRl80mZn48edoggCUJfQK6zq+L1JU=",
+        "owner": "vyadh",
+        "repo": "nutest",
+        "rev": "f5b251469aa51c3a95fd1caeac8acbcbccb91a27",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vyadh",
+        "repo": "nutest",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "git_nu": "git_nu",
+        "nupm": "nupm",
+        "nutest": "nutest"
+      }
+    }
   },
   "root": "root",
   "version": 7
