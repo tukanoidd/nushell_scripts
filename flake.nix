@@ -48,11 +48,19 @@
     external = {
       modules = let
         mod_dir = builtins.toPath "${nu_scripts}/modules/";
+        mod_dir_entries = builtins.readDir mod_dir;
+        mod_dir_dirs = lib.filterAttrs (_name: ty: ty == "directory") mod_dir_entries;
+        mod_dir_dir_names = builtins.map ({
+          name,
+          value,
+        }:
+          name) (lib.attrsToList mod_dir_dirs);
       in
-        builtins.mapAttrs (name: _ty: {
-          inherit name;
-          value = builtins.toPath "${mod_dir}/${name}";
-        }) (lib.filterAttrs (_name: ty: ty == "directory") (builtins.readDir mod_dir));
+        builtins.listToAttrs (builtins.map (name: {
+            inherit name;
+            value = builtins.toPath "${mod_dir}/${name}";
+          })
+          mod_dir_dir_names);
 
       scripts = {
         nutest = nutest;
