@@ -29,7 +29,7 @@ export def rsgen []: nothing -> nothing {
     $template_option_names
   )
   let template_name = ($TEMPLATE_OPTIONS | get $type).template_name
-  let template = $"($TEMPLATE_BASE)/($template_name)"
+  let template = $"($TEMPLATE_BASE)#($template_name)"
 
   let path = input msg "Choose path:" -d "./new_project"
   let parsed_path = $path | path parse
