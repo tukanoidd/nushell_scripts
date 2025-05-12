@@ -9,7 +9,7 @@ export def "init proc-macro-lib" [
     | upsert lib { proc-macro: true }
     | save -f Cargo.toml)
 
-  cargo add proc-macro2 --features nightly-span-locations
+  cargo add proc-macro2 --features nightly,span-locations
 
   cargo add syn quote
   cargo add darling --features diagnostics
