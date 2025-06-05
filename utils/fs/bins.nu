@@ -9,7 +9,7 @@ export def "list" []: nothing -> list<string> {
 }
 
 export def "find" [name: string]: nothing -> list<string> {
-  bins list | filter {$in | str contains $name}
+  fs bins list | filter {$in | str contains $name}
 }
 
 export def "dentries" []: nothing -> list<string> {
@@ -23,7 +23,7 @@ export def "dentries" []: nothing -> list<string> {
 }
 
 export def "dentries find" [name: string]: nothing -> list<string> {
-  bins dentries 
+  fs bins dentries 
     | filter {|app| 
         $app.name 
           | str downcase 
