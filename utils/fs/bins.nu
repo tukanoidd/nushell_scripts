@@ -1,7 +1,7 @@
 export def "list" []: nothing -> list<string> {
   $env.PATH
     | split row ":"
-    | filter {$in | path exists}
+    | where {$in | path exists}
     | reduce --fold [] {|it, acc| ((ls $it) ++ $acc)}
     | each {$in.name | path split | last}
     | uniq
@@ -9,22 +9,22 @@ export def "list" []: nothing -> list<string> {
 }
 
 export def "find" [name: string]: nothing -> list<string> {
-  list | filter {$in | str contains $name}
+  list | where {$in | str contains $name}
 }
 
 export def "dentries" []: nothing -> list<string> {
   $env.XDG_DATA_DIRS 
     | split row ':' 
-    | filter {|path| $path | path exists} 
+    | where {|path| $path | path exists} 
     | each {|path| ls $path} | flatten 
     | get name 
-    | filter {|path| $path | str contains "applications"} 
+    | where {|path| $path | str contains "applications"} 
     | each {|path| ls $path} | flatten
 }
 
 export def "dentries find" [name: string]: nothing -> list<string> {
   dentries 
-    | filter {|app| 
+    | where {|app| 
         $app.name 
           | str downcase 
           | str contains ($name | str downcase)

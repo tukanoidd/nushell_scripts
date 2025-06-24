@@ -15,7 +15,7 @@ export def "flake update interactive" [flake_path:path = "./flake.nix"] {
 
   let lock_path = ($flake_path | path dirname | path join "flake.lock")
   let lock = (open $lock_path | from json)
-  let nodes = ($lock.nodes | transpose name val | filter {|v| $inputs | any {|il| $il | str starts-with $v.name}} | each {$in.name})
+  let nodes = ($lock.nodes | transpose name val | where {|v| $inputs | any {|il| $il | str starts-with $v.name}} | each {$in.name})
 
   let selected_inputs = ($nodes | input list -m)
 

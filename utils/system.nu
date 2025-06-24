@@ -1,7 +1,7 @@
 export def lsmod [] {
   ^lsmod
     | split row '\n'
-    | filter {|line| not ($line | str contains "Module")}
+    | where {|line| not ($line | str contains "Module")}
     | each {|line|
       $line
         | parse --regex '(?P<Module>\w*)\s*(?P<Size>\d*)\s*(?<UsedByPrograms>\d*)\s*(?<UsedByModules>[\w,]*)?'
@@ -21,7 +21,7 @@ export def ifconfig_interface [info: string] {
     | get 1
     | split row '    ' 
     | each {|row| $row | $row | str trim}
-    | filter {|row| $row | is-not-empty}
+    | where {|row| $row | is-not-empty}
 
   {
     interface: $intName
@@ -72,8 +72,8 @@ export def "fonts info weight" [
   --styles = false 
   --non-fc-values=false
 ] {
-  let no_filters  = (not $path) and (not $names) and (not $styles);
-  let filters = {path: $path, names: $names, styles: $styles}
+  let no_wheres  = (not $path) and (not $names) and (not $styles);
+  let wheres = {path: $path, names: $names, styles: $styles}
 
   (fc-list :family=($family) weight) 
     | split row "\n"
@@ -102,7 +102,7 @@ export def "fonts info weight" [
 
       let weight_fonts = (fc-list :weight=($weight_str)) 
         | split row "\n" 
-        | filter {$in | str contains $family}
+        | where {$in | str contains $family}
         | each {
           let path_names_styles = $in | split row ": "
           let path = $path_names_styles | get 0 
@@ -110,21 +110,21 @@ export def "fonts info weight" [
           let names = $names_styles | get 0 | split row ","
           let styles = $names_styles | get 1 | split row ","
 
-          if $no_filters {
+          if $no_wheres {
             return {path: $path, names: $names, styles: $styles}
           }
 
           mut res = {}
 
-          if $filters.path {
+          if $wheres.path {
             $res = $res | insert path {$path} 
           }
 
-          if $filters.names {
+          if $wheres.names {
             $res = $res | insert names {$names}
           }
 
-          if $filters.styles {
+          if $wheres.styles {
             $res = $res | insert styles {$styles}
           }
 
