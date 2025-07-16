@@ -3,11 +3,11 @@
     "git_nu": {
       "flake": false,
       "locked": {
-        "lastModified": 1749604389,
-        "narHash": "sha256-bEQ5NGpFHox8fzFjoa6ETTmEzlOC/Ka6nSdVvOaDDb0=",
+        "lastModified": 1752027151,
+        "narHash": "sha256-lg5BvBjt693s8oPuipD/Cfcn8xECEmHb4cnjdg/qt74=",
         "owner": "fj0r",
         "repo": "git.nu",
-        "rev": "185131fe576a64a37c80f47642173b637e8337ab",
+        "rev": "24f61987729c8b17da84b7e99354e71c519173ac",
         "type": "github"
       },
       "original": {
@@ -34,11 +34,11 @@
     "nu_scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1749728536,
-        "narHash": "sha256-vn/YosQZ4OkWQqG4etNwISjzGJfxMucgC3wMpMdUwUg=",
+        "lastModified": 1751974809,
+        "narHash": "sha256-Vh2yuIMvYiYdCYWqFRx7G24hWrQ5iJr1byOV/pIkFyI=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "32cdc96414995e41de2a653719b7ae7375352eef",
+        "rev": "b09b60cc434bb9be05ce2bbb6dc299760d13b18b",
         "type": "github"
       },
       "original": {
